@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/nginx.htaccess
 /storage/*.key
 /vendor
 .env
