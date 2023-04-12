@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', \App\Http\Controllers\admin\Dashboard::Class);
+
+Route::prefix('/image')->name('image')->group(function () {
+    Route::get('/index', [\App\Http\Controllers\admin\Image::class, 'index'])->name('index');
+    Route::post('/upload', [\App\Http\Controllers\admin\Image::class, 'upload'])->name('upload');
+});
+
+Route::prefix('/demo')->group(function () {
+    Route::get('/form', function () {
+        return view('/demo/form');
+    });
 });
